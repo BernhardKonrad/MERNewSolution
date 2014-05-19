@@ -12,7 +12,7 @@ def hello():
 
 @app.route('/', methods=['POST'])
 def communicate_post():
-    if request.form['submit'] == 'submit':
+    if request.form['submit'] == 'preview':
         hint = request.form['inputHint']
         sol = request.form['inputSol']
         return render_template("communicate.html", myhint=hint, mysol=sol)
