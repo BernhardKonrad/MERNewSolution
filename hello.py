@@ -7,18 +7,15 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
 #    name = redis.get('name').decode('utf-8')
-    return render_template("communicate.html", name='abc')
+    return render_template("communicate.html", myhint='', mysol='')
 
 
 @app.route('/', methods=['POST'])
 def communicate_post():
-    if request.form['my-form'] == 'Send':
-        name = request.form['text']
-        redis.set('name',name)
-        return render_template("communicate.html", name=name)
-    elif request.form['my-form'] == 'Refresh':
-        name = redis.get('name').decode('utf-8')
-        return render_template("communicate.html", name=name)
+    if request.form['submit'] == 'submit':
+        hint = request.form['inputHint']
+        sol = request.form['inputSol']
+        return render_template("communicate.html", myhint=hint, mysol=sol)
     else:
         return "Something went wrong"
 

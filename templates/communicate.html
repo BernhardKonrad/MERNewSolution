@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
 <body>
-        <h1>Hello {{ name }}!</h1>
+    <h1>Please submit your hint below.</h1>
     <form action="." method="POST">
-        <input type="text" name="text">
-        <input type="submit" name="my-form" value="Send">
-        <input type="submit" name="my-form" value="Refresh">
+    <textarea rows="4" cols="50" type='inputHint' name="inputHint" value="inputHint">{{ myhint }}</textarea>
+    <input type="submit" name="submit" value="submit">
+    
+
+    <h2>Hint</h2>
+    <div name="output-hint" align="left" style="width:300px">{{ myhint }}</div>
+
+
+    <h1>Please submit your solution below.</h1>
+
+    <textarea rows="4" cols="50" type='inputSol' name="inputSol" value="inputSol">{{ mysol }}</textarea>
+    <input type="submit" name="submit" value="submit">
     </form>
+
+
+    <h2>Solution</h2>
+    <div name="output-sol" align="left" style="width:300px">{{ mysol }}</div>
+
+    
 </body>
 </html>
