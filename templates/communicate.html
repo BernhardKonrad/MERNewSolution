@@ -28,19 +28,23 @@ MathJax.Hub.Config({
 
             <textarea rows="10" type='inputSol' name="inputSol" value="inputSol" style="width:90%">{{ mysol }}</textarea>
             <input type="submit" name="submit" value="preview">
-            <h2>Solution</h2>
+            
             <div name="output-sol" align="left" style="width:300px">{{ mysol }}</div>
             
-            <h2>Both</h2>
-            <div name="both" align="left" style="width:300px">{{ both }}</div>    
-
+            <input type="submit" name="submit" value="submit">
+            
         </td>
         <td style="background-color:#eeeeee;width:30%;vertical-align:top;">
             <h3>Tags</h3>
             &nbsp; <input name="inputTag" style="width:70%"> <br>
+            {% for tag in tags_not_on_MER %}
+            <input type="checkbox" name="vehicle" value={{ tag }}><font color="red">{{ tag }}</font><br>
+            {% endfor %}
+
             {% for tag in tags %}
                 <input type="checkbox" name="vehicle" value={{ tag }}>{{ tag }}<br>
             {% endfor %}
+
         </td>
     </tr>
     </table>
