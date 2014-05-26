@@ -11,34 +11,40 @@ MathJax.Hub.Config({
 </script>
 </head>
 <body>
-    <h1>Please submit your hint below.</h1>
     <form action="." method="POST">
-    <textarea rows="4" cols="50" type='inputHint' name="inputHint" value="inputHint">{{ myhint }}</textarea>
-    <input type="submit" name="submit" value="preview">
-    
+        
+    <table style="width:100%;" cellpadding="0" cellspacing="0">
+    <tr>
+        <td style="width:70%;vertical-align:top;">
+            <h1>Hint</h1>
 
-    <h2>Hint</h2>
-    <div name="output-hint" align="left" style="width:300px">{{ myhint }}</div>
+            <textarea rows="7" type='inputHint' name="inputHint" value="inputHint" style="width:90%">{{ myhint }}</textarea>
+            <input type="submit" name="submit" value="preview">
+
+            <div name="output-hint" align="left" style="width:90%">{{ myhint }}</div>
 
 
-    <h1>Please submit your solution below.</h1>
+            <h1>Solution</h1>
 
-    <textarea rows="4" cols="50" type='inputSol' name="inputSol" value="inputSol">{{ mysol }}</textarea>
-    <input type="submit" name="submit" value="preview">
-    <h2>Solution</h2>
-    <div name="output-sol" align="left" style="width:300px">{{ mysol }}</div>
+            <textarea rows="10" type='inputSol' name="inputSol" value="inputSol" style="width:90%">{{ mysol }}</textarea>
+            <input type="submit" name="submit" value="preview">
+            <h2>Solution</h2>
+            <div name="output-sol" align="left" style="width:300px">{{ mysol }}</div>
+            
+            <h2>Both</h2>
+            <div name="both" align="left" style="width:300px">{{ both }}</div>    
 
-    <br>
-    {% for tag in tags %}
-    <input type="checkbox" name="vehicle" value={{ tag }}>{{ tag }}<br>
-    {% endfor %}
+        </td>
+        <td style="background-color:#eeeeee;width:30%;vertical-align:top;">
+            <h3>Tags</h3>
+            &nbsp; <input name="inputTag" style="width:70%"> <br>
+            {% for tag in tags %}
+                <input type="checkbox" name="vehicle" value={{ tag }}>{{ tag }}<br>
+            {% endfor %}
+        </td>
+    </tr>
+    </table>
     </form>
-
-
-
-    <h2>Both</h2>
-    <div name="both" align="left" style="width:300px">{{ both }}</div>    
-
 
 
 </body>
