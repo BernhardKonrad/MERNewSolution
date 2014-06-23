@@ -1,9 +1,9 @@
 from flask import Flask, request, render_template
 import redis
 import urllib
-import operator
-import pypandoc
-import re
+#import operator
+#import pypandoc
+#import re
 
 redis = redis.StrictRedis(
     host='pub-redis-10073.us-east-1-3.3.ec2.garantiadata.com',
